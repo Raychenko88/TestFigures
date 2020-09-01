@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class CircleTest {
 
-    Circle circle = new Circle("red", 10);
+    private Circle circle = new Circle("red", 10);
 
     @Test
     void getArea() {

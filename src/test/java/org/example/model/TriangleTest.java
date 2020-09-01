@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TriangleTest {
 
-    Triangle triangle = new Triangle("red", 10, 20, 30);
+    private Triangle triangle = new Triangle("red", 10, 20, 30);
 
     @Test
     void getArea() {
