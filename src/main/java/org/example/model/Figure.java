@@ -18,7 +18,5 @@ public abstract class Figure {
         return figure.color;
     }
 
-    double getArea() {
-        return 0;
-    }
+    abstract double getArea();
 }
