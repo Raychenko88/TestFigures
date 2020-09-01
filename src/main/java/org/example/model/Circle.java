@@ -1,30 +1,35 @@
 package org.example.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
 public class Circle extends Figure {
 
-    double radius;
+    private double radius;
 
-    public Circle(String color, Double radius) {
-        super(color);
+    public Circle(String color, double radius) {
+        setColor(color);
         this.radius = radius;
     }
 
-    public String getColor() {
-        return super.color;
-    }
-
-    public Double getCircumference() {
-        return Math.PI * 2*radius;
+    @Override
+    public void draw() {
+        System.out.println(String.format("Figure: circle, area: %f square units, circumference: %f" +
+                " units, color: %s", getArea(), getPerimeter(), getColor()));
     }
 
     @Override
-   public double getArea() {
+    public double getArea() {
         return Math.PI * (radius * radius);
     }
 
     @Override
-    public String toString() {
-        return "Figure: circle, area: " + getArea() + " square units, circumference: "
-                + getCircumference() + " units, color: " + getColor();
+    public double getPerimeter() {
+        return Math.PI * 2 * radius;
     }
+
 }

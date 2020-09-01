@@ -1,31 +1,34 @@
 package org.example.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
 public class Square extends Figure {
 
-    double side;
+    private double side;
 
-    public Square(String color, Double side) {
-        super(color);
+    public Square(String color, double side) {
+        super.setColor(color);
         this.side = side;
     }
 
-    public String getColor() {
-        return super.color;
-    }
-
-    public Double getPerimeter(){
+    public double getPerimeter() {
         return side * 4;
     }
 
+    @Override
+    public void draw() {
+        System.out.println(String.format("Figure: square, area: %f square units, perimeter: %f" +
+                " units, color: %s", getArea(), getPerimeter(), getColor()));
+    }
 
     @Override
-   public double getArea() {
+    public double getArea() {
         return side * side;
     }
 
-    @Override
-    public String toString() {
-        return "Figure: square, area: " + getArea() + " square units, perimeter: "
-                + getPerimeter() + " units, color: " + getColor();
-    }
 }

@@ -1,22 +1,15 @@
 package org.example.model;
 
+import lombok.Data;
 
+@Data
 public abstract class Figure {
 
-    String color;
+    private String color;
 
-    Figure(String color) {
-        this.color = color;
-    }
+    public abstract void draw();
 
+    public abstract double getArea();
 
-    void draw(Figure figure) {
-
-    }
-
-    String showColor(Figure figure) {
-        return figure.color;
-    }
-
-    abstract double getArea();
+    public abstract double getPerimeter();
 }

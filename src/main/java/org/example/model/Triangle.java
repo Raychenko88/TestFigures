@@ -1,32 +1,40 @@
 package org.example.model;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@NoArgsConstructor
+@ToString
 public class Triangle extends Figure {
 
-    double cathetusA;
-    double cathetusB;
+    private double sideA;
+    private double sideB;
+    private double sideC;
 
-    public String getColor() {
-        return super.color;
-    }
-
-    public Triangle(String color, Double cathetusA, Double cathetusB) {
-        super(color);
-        this.cathetusA = cathetusA;
-        this.cathetusB = cathetusB;
-    }
-
-    public Double getHypotenuse(){
-        return Math.sqrt(Math.pow(cathetusA, 2) + Math.pow(cathetusB, 2));
+    public Triangle(String color, double sideA, double sideB, double sideC) {
+        super.setColor(color);
+        this.sideA = sideA;
+        this.sideB = sideB;
+        this.sideC = sideC;
     }
 
     @Override
-   public double getArea() {
-        return (cathetusA * cathetusB) / 2;
+    public void draw() {
+        System.out.println(String.format("Figure: triangle, area: %f square units, perimeter: %f" +
+                " units, color: %s", getArea(), getPerimeter(), getColor()));
     }
 
     @Override
-    public String toString() {
-        return "Figure: triangle, area: " + getArea() + " square units, hypotenuse: "
-                + getHypotenuse() + " units, color: " + getColor();
+    public double getArea() {
+        double p = (sideA + sideB + sideC) / 2;
+        return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));
     }
+
+    @Override
+    public double getPerimeter() {
+        return sideA + sideB + sideC;
+    }
+
 }
